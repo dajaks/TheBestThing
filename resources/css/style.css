@@ -1,0 +1,321 @@
+html, body {
+  height: 100%;
+  min-height: 100%;
+}
+
+body {
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(180deg, #1a0b2e, #0d0d0d);
+  height: 100%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* ===================
+   HEADINGS
+   =================== */
+h1 {
+  color: rgb(215, 218, 207);
+  font-size: clamp(90px, 4rem + 2vw, 100px);
+  font-family: "Sansita Swashed", system-ui;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+  text-shadow: 
+    0 0 5px black,
+    0 0 10px black,
+    0 0 20px black,
+    0 0 40px black;
+}
+
+h2 {
+  color: rgb(215, 218, 207);
+  font-family: "Averia Libre", system-ui;
+  font-weight: 800;
+  font-style: normal;
+  font-size: clamp(16px, 6vw, 124px);
+  text-shadow:
+    -3px -3px 0 black,
+     3px -3px 0 black,
+    -3px  3px 0 black,
+     3px  3px 0 black,
+     0   -3px 0 black,
+     0    3px 0 black,
+    -3px  0   0 black,
+     3px  0   0 black;
+}
+/* ===============
+  NAV
+  ================== */
+  .odd-nav {
+    display: none;
+  }
+  .nav-toggle {
+     color: rgb(215, 218, 207);
+     position: absolute;
+     top: 15px;
+     left: 15px;
+     font-size: 48px;
+     cursor: pointer;
+  }
+
+
+  .popup-nav {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(15, 15, 19, 0.9);
+    z-index: 2001;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+
+  .popup-nav .close-btn {
+    color: rgb(215, 218, 207);
+    font-weight: 700;
+    font-size: 84px;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    transition: color .3s ease;
+    cursor: pointer;
+
+  }
+  .popup-nav a {
+    text-decoration: none;
+      color: rgb(215, 218, 207);
+  font-size: clamp(90px, 4rem + 2vw, 100px);
+  font-family: "Sansita Swashed", system-ui;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+  text-shadow:
+    -3px -3px 0 black,
+     3px -3px 0 black,
+    -3px  3px 0 black,
+     3px  3px 0 black,
+     0   -3px 0 black,
+     0    3px 0 black,
+    -3px  0   0 black,
+     3px  0   0 black;
+  transition: color .3s ease;
+  }
+
+  .popup-nav.open {
+    display: flex;
+    opacity: 0.99;
+    pointer-events: auto;
+  }
+
+/* ===================
+   HEADER
+   =================== */
+
+
+
+
+header {
+  display: flex;
+  width: 100%;
+  height: 10%;
+  padding: 30px 10px;
+  border-radius: 5px;
+  justify-content: center;
+  align-items: center;
+}
+
+.title-words h1 {
+  margin: 0;
+  position: relative;
+  line-height: 1.1;
+}
+
+/* Mobile title (only shown on small screens) */
+.mobile-title {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 1rem;
+}
+
+.mobile-title h1 {
+  margin: 0;
+  font-size: clamp(20px, 6vw, 42px);
+}
+
+/* ===================
+   MAIN DUEL LAYOUT
+   =================== */
+.main-duel {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 100%;
+  min-width: 400px;
+  width: 100%;
+  height: 90%;
+  overflow-x: hidden;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 1%;
+  margin: 0;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+/* Player containers */
+.player1,
+.player2 {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  min-width: 400px;
+  width: 49.5%;
+  height: 100%;
+}
+
+.player1-img,
+.player2-img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: black;
+  min-height: clamp(300px, 40vw, 800px);
+  aspect-ratio: 16 / 9;
+  flex: 1 1 400px;
+  border: 5px solid rgb(215, 218, 207);
+  border-radius: 10px;
+  overflow: hidden;
+  width: 100%;
+}
+
+/* ===================
+   MEDIA QUERIES
+   =================== */
+
+/* 📱 Mobile (stacked layout, <900px wide) */
+@media (max-width: 900px) {
+  header { display: none; }
+  .mobile-title { 
+    display: flex; order: 2;
+
+  }
+
+  .main-duel {
+    flex-direction: column;
+    height: 100vh;
+    min-width: unset;
+  }
+
+  .player1, .player2 {
+    min-width: unset;
+    width: 100%;
+    flex: 1;
+    min-height: auto;
+    overflow: hidden;
+  }
+
+  .player1 { order: 1; }
+  .player2 { order: 3; }
+
+  .player1-img,
+  .player2-img {
+    flex: 1;
+    min-height: unset;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+  }
+
+  /* Nav bar for smaller screens */
+  .nav-toggle {
+    position: fixed;
+    top: 50%;
+    left: 3.25%;
+    transform: translateY(-50%);
+    z-index: 2000;
+    font-size: 26px;
+  }
+   .odd-nav {
+    display: none;
+  }
+}
+
+/* 📏 Short screen tiers */
+
+/* XS ≤150px */
+@media (max-height: 150px) {
+  header { display: none; }
+  .mobile-title { display: none; }
+
+  .main-duel {
+    flex-direction: row;
+    height: 100vh;
+    min-width: unset;
+  }
+
+  .player1, .player2 {
+    min-width: unset;
+    width: 100%;
+    flex: 1;
+    min-height: auto;
+    overflow: hidden;
+  }
+
+  .player1 { order: 1; }
+  .player2 { order: 3; }
+
+  .player1-img,
+  .player2-img {
+    flex: 1;
+    min-height: unset;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16/9;
+  }
+}
+
+
+/* S 151–300px */
+@media (min-height: 151px) and (max-height: 300px) {
+  /* Placeholder for small tweaks if needed */
+  
+}
+
+/* M 301–500px (also requires width ≥300px) */
+@media (min-height: 301px) and (max-height: 500px) and (min-width: 300px) {
+  header { display: none; }
+  .mobile-title { display: none; }
+
+
+}
+
+/* L 501–725px (also requires width ≥475px) */
+@media (min-height: 501px) and (max-height: 725px) and (min-width: 475px) {
+  .mobile-title { display: none; }
+  .main-duel { height: 100%; }
+}
+
+/* Universal: anything ≤725px tall → thin borders */
+@media (max-height: 725px) {
+  .player1-img,
+  .player2-img {
+    border: 1px solid rgb(215, 218, 207);
+  }
+}
