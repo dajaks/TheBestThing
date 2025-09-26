@@ -214,8 +214,16 @@ header {
   header { display: none; }
   .mobile-title { 
     display: flex; order: 2;
-
+    position: relative;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
   }
+  .mobile-title h1 {
+    margin: 0;
+    order: 2;
+  }
+
 
   .main-duel {
     flex-direction: column;
@@ -245,12 +253,12 @@ header {
 
   /* Nav bar for smaller screens */
   .nav-toggle {
-    position: fixed;
+    position: absolute;
+    left: 2%;
     top: 50%;
-    left: 3.25%;
     transform: translateY(-50%);
-    z-index: 2000;
-    font-size: 26px;
+    font-size: 36px;
+    cursor: pointer;
   }
    .odd-nav {
     display: none;
