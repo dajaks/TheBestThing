@@ -25,6 +25,8 @@ h1 {
   color: rgb(215, 218, 207);
   font-size: clamp(90px, 4rem + 2vw, 100px);
   font-family: "Sansita Swashed", system-ui;
+  
+  
   font-optical-sizing: auto;
   font-weight: 700;
   font-style: normal;
@@ -54,16 +56,14 @@ h2 {
 /* ===============
   NAV
   ================== */
-  .odd-nav {
-    display: none;
-  }
+
   .nav-toggle {
-     color: rgb(215, 218, 207);
-     position: absolute;
-     top: 15px;
-     left: 15px;
-     font-size: 48px;
-     cursor: pointer;
+    color: rgb(215, 218, 207);
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    font-size: 48px;
+    cursor: pointer;
   }
 
 
@@ -93,8 +93,23 @@ h2 {
     right: 15px;
     transition: color .3s ease;
     cursor: pointer;
+  }
+
+  .close-btn{
+        text-shadow:
+      -1px -1px 0 black,
+      1px -1px 0 black,
+      -1px  1px 0 black,
+      1px  1px 0 black,
+      0   -1px 0 black,
+      0    1px 0 black,
+      -1px  0   0 black,
+      1px  0   0 black;
 
   }
+
+
+
   .popup-nav a {
     text-decoration: none;
       color: rgb(215, 218, 207);
@@ -206,6 +221,72 @@ header {
 }
 
 /* ===================
+   SUBMISSION FORM
+   =================== */
+
+.submission-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+.submission-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.submission-form label {
+  font-size: 32px;
+  color: rgb(215, 218, 207);
+  margin: 10px 10px;
+  font-family: "Sansita Swashed", system-ui;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  text-shadow:
+    -3px -3px 0 black,
+     3px -3px 0 black,
+    -3px  3px 0 black,
+     3px  3px 0 black,
+     0   -3px 0 black,
+     0    3px 0 black,
+    -3px  0   0 black,
+     3px  0   0 black;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.submission-form input,
+.submission-form textarea,
+.submission-form button {
+  width: 100%;
+  max-width: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
+}
+
+.submission-form input,
+.submission-form textare {
+  border: 2px solid rgb(215, 218, 207);
+  border-radius: 8px;
+  color: rgb(215, 218, 207);
+  background-color: #0d0d0d;
+   font-family: Arial, Helvetica, sans-serif;
+
+}
+
+.submission-form button {
+  margin-top: 20px;
+    border: 2px solid rgb(215, 218, 207);
+  border-radius: 8px;
+  color: rgb(215, 218, 207);
+  background-color: #0d0d0d;
+   font-family: Arial, Helvetica, sans-serif;
+}
+
+/* ===================
    MEDIA QUERIES
    =================== */
 
@@ -260,9 +341,40 @@ header {
     font-size: 36px;
     cursor: pointer;
   }
-   .odd-nav {
-    display: none;
-  }
+
+
+  /*
+    ====SUBMISSION FORM
+    */
+
+  .submission-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    max-width: 100%;
+}
+
+.submission-container h1 {
+  font-size: clamp(32px, 8vw, 90px);
+  text-align: center;
+}
+
+.submission-form input,
+.submission-form textarea,
+.submission-form button {
+  padding: 15px;
+  width: 80%;
+
+}
+
+#sub-nav-toggle{
+  position: absolute;
+  top: 30px;
+  left: 5px;
+}
+
 }
 
 /* 📏 Short screen tiers */

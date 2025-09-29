@@ -9,14 +9,17 @@ const closeBtn = document.querySelector(".close-btn");
 const popupNav = document.querySelector(".popup-nav")
 const navLinks = document.querySelectorAll(".popup-nav a");
 
+if (player1 && player1Text){
 player1.addEventListener("click", () => {
     player1Text.textContent = "Player 1 wins";
 });
+}
 
+if (player2 && player2Text){
 player2.addEventListener("click", () => {
     player2Text.textContent = "Player 2 wins"
 });
-
+}
 navBtn.forEach(btn => {
     btn.addEventListener("click", () => {
         popupNav.classList.add("open");

@@ -3,9 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Averia+Libre:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Sansita+Swashed:wght@300..900&display=swap" rel="stylesheet">
+    <link href="./resources/css/style.css" rel="stylesheet">
     <title>Submission Form</title>
+
 </head>
 <body>
+
+   
+      <!-- 
+    ========NAV BAR==========
+    -->
+    <nav class="popup-nav">
+            <div class="close-btn">&times;</div>
+        <a href="index.html">Home</a>
+        <a href="submit.html">Submit</a>
+    </nav>
     
+<!--
+=============SUBMISSION FORM==================
+                -->
+
+      <main class="submission-container">
+        <div id="sub-nav-toggle" class="nav-toggle">&#9776;</div>
+        <h1>Submit a Thing!</h1>
+        <form class="submission-form" action ="#" method="post" enctype="multipart/form-data">
+            <!--Thing Title-->
+            <label for="thing-title">Name a Thing.</label>
+            <input type="text" id="thing-title" name="thing-title" required placeholder="Enter Your Thing">
+            <!--Description of Thing-->
+            <label for="thing-description">Describe Your Thing (Optional)</label>
+            <input type="text" id="thing-description" name="thing-description" placeholder = "Describe Your Thing(optional)">
+            <!--Image upload-->
+            <label for="thing-image">Upload Image</label>
+            <input type="file" id="thing-image" name="thing-image" accept="image/*">
+            <!--Submit button-->
+            <button type="submit">Submit</button>
+        </form>
+      </main> 
+    <script src="app.js"></script>         
 </body>
 </html>
