@@ -1,14 +1,17 @@
+/* ===================
+   GLOBAL RESET & BODY
+   =================== */
 html, body {
   height: 100%;
   min-height: 100%;
 }
 
 body {
-  overflow-x: hidden;
   margin: 0;
   padding: 0;
-  background: linear-gradient(180deg, #1a0b2e, #0d0d0d);
   height: 100%;
+  overflow-x: hidden;
+  background: linear-gradient(180deg, #1a0b2e, #0d0d0d);
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
@@ -23,26 +26,25 @@ body {
    =================== */
 h1 {
   color: rgb(215, 218, 207);
-  font-size: clamp(90px, 4rem + 2vw, 100px);
   font-family: "Sansita Swashed", system-ui;
-  
-  
   font-optical-sizing: auto;
-  font-weight: 700;
   font-style: normal;
+  font-weight: 700;
+  font-size: clamp(90px, 4rem + 2vw, 100px);
   text-shadow: 
     0 0 5px black,
     0 0 10px black,
     0 0 20px black,
     0 0 40px black;
+  cursor: default;
 }
 
 h2 {
   color: rgb(215, 218, 207);
   font-family: "Averia Libre", system-ui;
-  font-weight: 800;
   font-style: normal;
-  font-size: clamp(16px, 6vw, 124px);
+  font-weight: 800;
+  font-size: clamp(36px, 6vw, 124px);
   text-shadow:
     -3px -3px 0 black,
      3px -3px 0 black,
@@ -53,71 +55,73 @@ h2 {
     -3px  0   0 black,
      3px  0   0 black;
 }
-/* ===============
-  NAV
-  ================== */
 
-  .nav-toggle {
-    color: rgb(215, 218, 207);
-    position: absolute;
-    top: 15px;
-    left: 15px;
-    font-size: 48px;
-    cursor: pointer;
-  }
+/* ===================
+   NAVIGATION
+   =================== */
+.nav-toggle {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  font-size: 48px;
+  color: rgb(215, 218, 207);
+  cursor: pointer;
+}
 
+.popup-nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2001;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(15, 15, 19, 0.9);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
 
-  .popup-nav {
-    display: flex;
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    background-color: rgba(15, 15, 19, 0.9);
-    z-index: 2001;
-    justify-content: space-around;
-    align-items: center;
-    flex-direction: column;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s ease;
-  }
+.popup-nav.open {
+  display: flex;
+  opacity: 0.99;
+  pointer-events: auto;
+}
 
-  .popup-nav .close-btn {
-    color: rgb(215, 218, 207);
-    font-weight: 700;
-    font-size: 84px;
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    transition: color .3s ease;
-    cursor: pointer;
-  }
+.popup-nav .close-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 84px;
+  font-weight: 700;
+  color: rgb(215, 218, 207);
+  transition: color .3s ease;
+  cursor: pointer;
+}
 
-  .close-btn{
-        text-shadow:
-      -1px -1px 0 black,
-      1px -1px 0 black,
-      -1px  1px 0 black,
-      1px  1px 0 black,
-      0   -1px 0 black,
-      0    1px 0 black,
-      -1px  0   0 black,
-      1px  0   0 black;
+.close-btn {
+  text-shadow:
+    -1px -1px 0 black,
+     1px -1px 0 black,
+    -1px  1px 0 black,
+     1px  1px 0 black,
+     0   -1px 0 black,
+     0    1px 0 black,
+    -1px  0   0 black,
+     1px  0   0 black;
+}
 
-  }
-
-
-
-  .popup-nav a {
-    text-decoration: none;
-      color: rgb(215, 218, 207);
-  font-size: clamp(90px, 4rem + 2vw, 100px);
+.popup-nav a {
   font-family: "Sansita Swashed", system-ui;
   font-optical-sizing: auto;
-  font-weight: 700;
   font-style: normal;
+  font-weight: 700;
+  font-size: clamp(90px, 4rem + 2vw, 100px);
+  color: rgb(215, 218, 207);
+  text-decoration: none;
   text-shadow:
     -3px -3px 0 black,
      3px -3px 0 black,
@@ -128,29 +132,19 @@ h2 {
     -3px  0   0 black,
      3px  0   0 black;
   transition: color .3s ease;
-  }
-
-  .popup-nav.open {
-    display: flex;
-    opacity: 0.99;
-    pointer-events: auto;
-  }
+}
 
 /* ===================
    HEADER
    =================== */
-
-
-
-
 header {
   display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   height: 10%;
   padding: 30px 10px;
   border-radius: 5px;
-  justify-content: center;
-  align-items: center;
 }
 
 .title-words h1 {
@@ -166,6 +160,7 @@ header {
   align-items: center;
   text-align: center;
   padding: 1rem;
+  height: 10%;
 }
 
 .mobile-title h1 {
@@ -173,62 +168,219 @@ header {
   font-size: clamp(20px, 6vw, 42px);
 }
 
+
 /* ===================
+   DESCRIPTION BOX
+   =================== */
+
+.desc-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: rgba(0,0,0,0.7);
+  color: rgb(215, 218, 207);
+  font-weight: bold;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  /*font styling*/
+  color: rgb(215, 218, 207);
+  font-size: clamp(12px, 4vw, 36px);
+  -webkit-text-stroke: 1px black;
+  font-family: Arial, Helvetica, sans-serif;
+  text-shadow:
+    -1px -1px 0 black,
+     1px -1px 0 black,
+    -1px  1px 0 black,
+     1px  1px 0 black;
+  }
+
+
+
+.desc-text {
+  position: absolute;
+  top: 2.5%;
+  left: 2.5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 95%;
+  height: 95%;
+  background:rgba(0,0,0,0.97);
+  color: rgb(215, 218, 207);
+  /*transition*/
+  opacity: 0;
+  transform: scale(0.95);
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.desc-text.show {
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: auto;
+}
+ .desc-text h3 {
+  font-size: clamp(20px, 5vw, 72px);
+  font-family: "Averia Libre", system-ui;
+
+  white-space: normal;
+  word-wrap: break-word;
+  text-align: center;
+ }
+
+.desc-close {
+  position: absolute;
+  top: 0;
+  right: 5px;
+  font-size: clamp(36px, 10vw, 48px);
+  font-weight: 700;
+  color: rgb(215, 218, 207);
+  transition: color .3s ease;
+  cursor: pointer;
+}
+ /* ===================
    MAIN DUEL LAYOUT
    =================== */
+
+
 .main-duel {
   display: flex;
+  flex-direction: row;
   flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
   max-width: 100%;
   min-width: 400px;
   width: 100%;
   height: 90%;
-  overflow-x: hidden;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
   gap: 1%;
   margin: 0;
   padding: 1rem;
   box-sizing: border-box;
 }
 
-/* Player containers */
 .player1,
 .player2 {
   display: flex;
-  justify-content: center;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   min-width: 400px;
   width: 49.5%;
   height: 100%;
+  cursor: pointer;
 }
 
 .player1-img,
 .player2-img {
+  position: relative;
   display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
   align-items: center;
-  justify-content: center;
-  background-color: black;
+  width: 100%;
+  flex: 1 1 400px;
   min-height: clamp(300px, 40vw, 800px);
   aspect-ratio: 16 / 9;
-  flex: 1 1 400px;
+  background-color: black;
   border: 5px solid rgb(215, 218, 207);
   border-radius: 10px;
   overflow: hidden;
+}
+
+
+/*===VOTE BAR===*/
+
+.stats {
+  display: block;
   width: 100%;
+  margin-top: 10px;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  color: rgb(215, 218, 207);
+}
+
+.stats-bar {
+  background: rgb(215, 218, 207);
+  border: 2px solid black;
+  border-radius: 6px;
+  height: clamp(12px, 2vw, 24px);
+  width: 90%;
+  max-width: 700px;
+  margin: 0 auto 5px auto;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.stats-fill {
+  background:  #1a0b2e;
+  height: 100%;
+  transition: width 0.4s ease;
+}
+
+.stats-text {
+  font-size: 36px;
+  color: rgb(215, 218, 207);
+  -webkit-text-stroke: 1px black;
+  text-shadow:
+    -1px -1px 0 black,
+     1px -1px 0 black,
+    -1px  1px 0 black,
+     1px  1px 0 black;
+  font-weight: 700;
+}
+
+
+/* ===================
+    NEXT BUTTON
+    ================== */
+
+#next-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6); /* dim background */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3000; /* above everything */
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+}
+
+#next-overlay.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+#next-btn {
+  font-size: clamp(24px, 6vw, 64px);
+  padding: 20px 40px;
+  background: #1a0b2e;
+  color: rgb(215, 218, 207);
+  border: 4px solid rgb(215, 218, 207);
+  border-radius: 12px;
+  cursor: pointer;
+  font-family: "Sansita Swashed", system-ui;
+  text-shadow: -2px -2px 0 black, 2px -2px 0 black,
+               -2px 2px 0 black, 2px 2px 0 black;
 }
 
 /* ===================
    SUBMISSION FORM
    =================== */
-
 .submission-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-
 }
 
 .submission-form {
@@ -239,12 +391,13 @@ header {
 }
 
 .submission-form label {
+  font-family: "Sansita Swashed", system-ui;
+  font-weight: 500;
   font-size: 32px;
   color: rgb(215, 218, 207);
   margin: 10px 10px;
-  font-family: "Sansita Swashed", system-ui;
-  font-weight: 500;
   letter-spacing: 1.5px;
+  text-align: center;
   text-shadow:
     -3px -3px 0 black,
      3px -3px 0 black,
@@ -254,7 +407,6 @@ header {
      0    3px 0 black,
     -3px  0   0 black,
      3px  0   0 black;
-  text-align: center;
   box-sizing: border-box;
 }
 
@@ -269,21 +421,20 @@ header {
 
 .submission-form input,
 .submission-form textare {
-  border: 2px solid rgb(215, 218, 207);
-  border-radius: 8px;
   color: rgb(215, 218, 207);
   background-color: #0d0d0d;
-   font-family: Arial, Helvetica, sans-serif;
-
+  border: 2px solid rgb(215, 218, 207);
+  border-radius: 8px;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .submission-form button {
   margin-top: 20px;
-    border: 2px solid rgb(215, 218, 207);
-  border-radius: 8px;
   color: rgb(215, 218, 207);
   background-color: #0d0d0d;
-   font-family: Arial, Helvetica, sans-serif;
+  border: 2px solid rgb(215, 218, 207);
+  border-radius: 8px;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 /* ===================
@@ -293,18 +444,20 @@ header {
 /* 📱 Mobile (stacked layout, <900px wide) */
 @media (max-width: 900px) {
   header { display: none; }
+
   .mobile-title { 
-    display: flex; order: 2;
+    display: flex;
+    order: 2;
     position: relative;
     width: 100%;
     justify-content: center;
     align-items: center;
   }
+
   .mobile-title h1 {
     margin: 0;
     order: 2;
   }
-
 
   .main-duel {
     flex-direction: column;
@@ -312,10 +465,11 @@ header {
     min-width: unset;
   }
 
-  .player1, .player2 {
-    min-width: unset;
+  .player1,
+  .player2 {
     width: 100%;
     flex: 1;
+    min-width: unset;
     min-height: auto;
     overflow: hidden;
   }
@@ -325,10 +479,10 @@ header {
 
   .player1-img,
   .player2-img {
-    flex: 1;
-    min-height: unset;
     width: 100%;
     height: auto;
+    flex: 1;
+    min-height: unset;
     aspect-ratio: 16 / 9;
   }
 
@@ -337,16 +491,12 @@ header {
     position: absolute;
     left: 2%;
     top: 50%;
-    transform: translateY(-50%);
     font-size: 36px;
+    transform: translateY(-50%);
     cursor: pointer;
   }
 
-
-  /*
-    ====SUBMISSION FORM
-    */
-
+  /* Submission form tweaks */
   .submission-container {
     display: flex;
     flex-direction: column;
@@ -354,35 +504,46 @@ header {
     justify-content: center;
     text-align: center;
     max-width: 100%;
+  }
+
+  .submission-container h1 {
+    font-size: clamp(32px, 8vw, 90px);
+    text-align: center;
+  }
+
+  .submission-form input,
+  .submission-form textarea,
+  .submission-form button {
+    width: 80%;
+    padding: 15px;
+  }
+
+  #sub-nav-toggle {
+    position: absolute;
+    top: 30px;
+    left: 5px;
+  }
+
+  /* Stats tweaks for smaller screens */
+.stats-bar {
+  height: clamp(8px, 1.5vw, 16px);   
+  width: 95%;                        
+  max-width: 400px;                 
 }
 
-.submission-container h1 {
-  font-size: clamp(32px, 8vw, 90px);
-  text-align: center;
+.stats-text {
+  font-size: clamp(10px, 3vw, 18px);
+  margin-top: 2px;                  
+}
 }
 
-.submission-form input,
-.submission-form textarea,
-.submission-form button {
-  padding: 15px;
-  width: 80%;
-
-}
-
-#sub-nav-toggle{
-  position: absolute;
-  top: 30px;
-  left: 5px;
-}
-
-}
 
 /* 📏 Short screen tiers */
 
 /* XS ≤150px */
 @media (max-height: 150px) {
-  header { display: none; }
-  .mobile-title { display: none; }
+  header, .mobile-title { display: none; }
+
 
   .main-duel {
     flex-direction: row;
@@ -390,10 +551,11 @@ header {
     min-width: unset;
   }
 
-  .player1, .player2 {
-    min-width: unset;
+  .player1,
+  .player2 {
     width: 100%;
     flex: 1;
+    min-width: unset;
     min-height: auto;
     overflow: hidden;
   }
@@ -403,33 +565,70 @@ header {
 
   .player1-img,
   .player2-img {
-    flex: 1;
-    min-height: unset;
     width: 100%;
     height: auto;
-    aspect-ratio: 16/9;
+    flex: 1;
+    min-height: unset;
+    aspect-ratio: 16 / 9;
   }
+
+  .player1 h2,
+  .player2 h2 {
+    font-size: clamp(12px, 4vw, 36px);
+    -webkit-text-stroke: 1px black;
+    text-shadow:
+    -1px -1px 0 black,
+     1px -1px 0 black,
+    -1px  1px 0 black,
+     1px  1px 0 black;
+
+  }
+
+.stats-bar {
+  height: clamp(6px, 1.5vh, 12px);
 }
 
+.stats-text {
+  font-size: clamp(8px, 2vh, 14px);
+    -webkit-text-stroke: 0.25px black;
+    text-shadow: none;
 
-/* S 151–300px */
-@media (min-height: 151px) and (max-height: 300px) {
-  /* Placeholder for small tweaks if needed */
+}
   
 }
 
-/* M 301–500px (also requires width ≥300px) */
-@media (min-height: 301px) and (max-height: 500px) and (min-width: 300px) {
-  header { display: none; }
-  .mobile-title { display: none; }
+/* S 151–300px */
+@media (min-height: 151px) and (max-height: 500px) {
+  .player1 h2,
+  .player2 h2 {
+    font-size: clamp(12px, 4vw, 36px);
+    -webkit-text-stroke: 1px black;
+    text-shadow:
+    -1px -1px 0 black,
+     1px -1px 0 black,
+    -1px  1px 0 black,
+     1px  1px 0 black;
+  }
 
-
+.stats-bar {
+  height: clamp(6px, 1.5vh, 12px);
 }
+
+.stats-text {
+  font-size: clamp(8px, 2vh, 14px);
+  -webkit-text-stroke: 0.25px black;
+  text-shadow: none;
+}
+}
+
+/* M 301–500px (also requires width ≥300px) */
+
 
 /* L 501–725px (also requires width ≥475px) */
 @media (min-height: 501px) and (max-height: 725px) and (min-width: 475px) {
-  .mobile-title { display: none; }
   .main-duel { height: 100%; }
+
+
 }
 
 /* Universal: anything ≤725px tall → thin borders */
@@ -437,5 +636,8 @@ header {
   .player1-img,
   .player2-img {
     border: 1px solid rgb(215, 218, 207);
+
   }
+
+
 }

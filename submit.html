@@ -27,20 +27,21 @@
       <main class="submission-container">
         <div id="sub-nav-toggle" class="nav-toggle">&#9776;</div>
         <h1>Submit a Thing!</h1>
-        <form class="submission-form" action ="#" method="post" enctype="multipart/form-data">
+        <form class="submission-form" method="post" enctype="multipart/form-data">
+          <p id="submit-status" style="color:rgb(215, 218, 207); text-align:center;"></p>
             <!--Thing Title-->
             <label for="thing-title">Name a Thing.</label>
             <input type="text" id="thing-title" name="thing-title" required placeholder="Enter Your Thing">
             <!--Description of Thing-->
-            <label for="thing-description">Describe Your Thing (Optional)</label>
-            <input type="text" id="thing-description" name="thing-description" placeholder = "Describe Your Thing(optional)">
+            <label for="thing-description">Describe Your Thing</label>
+            <input type="text" id="thing-description" name="thing-description" required placeholder = "Describe Your Thing">
             <!--Image upload-->
             <label for="thing-image">Upload Image</label>
-            <input type="file" id="thing-image" name="thing-image" accept="image/*">
+            <input type="file" id="thing-image" name="thing-image" accept="image/*" required>
             <!--Submit button-->
             <button type="submit">Submit</button>
         </form>
       </main> 
-    <script src="app.js"></script>         
+    <script src="app.js" defer></script>         
 </body>
 </html>
